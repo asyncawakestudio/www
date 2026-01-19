@@ -15,12 +15,12 @@ describe("Home", () => {
     });
 
     it("renders renders title", () => {
-        expect(screen.getByTestId("home-title").textContent).toBe('Async Awake');
+        expect(screen.getByTestId("home-title").textContent).toBe('Async Awake Studio');
     });
 
-    it("renders renders subtitle", () => {
-        expect(screen.getByTestId("home-subtitle").textContent).toBe('A technology blog about coding, software engineering, cyber security and more.');
-    });
+        it("renders renders subtitle", () => {
+            expect(screen.getByTestId("home-content").textContent).toBe('We build accessible, performant, responsive and secure applications.');
+        });
 
     it("renders renders posts", () => {
         expect(screen.getByTestId("home-posts").textContent).toBe('Blog');
