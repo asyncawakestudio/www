@@ -22,27 +22,27 @@ function compress(data: string) {
 function decompress(data: string) {
   return data;
 }
+
 type AppSchema = {
   content: string;
 };
 
-export default function Zettel() {
+function getContentFromHash(hash: string | undefined): string {
+  if (!hash) return '';
+  const decoded = decode(hash);
+  const decompressed = decompress(decoded);
+  const newState: AppSchema = JSON.parse(decompressed);
+  return newState.content;
+}
 
-  const [content, setContent] = React.useState<string>('');
-  const [isQRVisible, setIsQRVisible] = React.useState<boolean>(false);
-  const [mode, setMode] = React.useState<'Edit' | 'Preview'>('Preview');
+export default function Zettel() {
 
   const { hash } = useParams();
   const navigate = useNavigate();
 
-  React.useEffect(function () {
-    if (hash !== undefined) {
-      const decoded = decode(hash);
-      const decompressed = decompress(decoded);
-      const newState: AppSchema = JSON.parse(decompressed);
-      setContent(newState.content);
-    }
-  }, [hash]);
+  const [content, setContent] = React.useState<string>(() => getContentFromHash(hash));
+  const [isQRVisible, setIsQRVisible] = React.useState<boolean>(false);
+  const [mode, setMode] = React.useState<'Edit' | 'Preview'>('Preview');
 
   const handleContentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
@@ -51,7 +51,7 @@ export default function Zettel() {
   const handleSaveAction = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.ctrlKey && event.key === 's') {
       event.preventDefault();
-      const encoded = save({ content })
+      const encoded = save({ content });
       navigate(`/service/zk/${encoded}`);
     }
   };
@@ -126,7 +126,7 @@ export default function Zettel() {
           value={content}
         />
       ) : (
-        <Markdown>{content === "" ? 'Start your knowledge base from your browser.. Press the Edit icon (or middle icon on top right) type something, press Ctrl+S (right icon on top right if on mobile), copy URL and share to someone.' : content}</Markdown>
+        <Markdown>{content === '' ? 'Start your knowledge base from your browser.. Press the Edit icon (or middle icon on top right) type something, press Ctrl+S (right icon on top right if on mobile), copy URL and share to someone.' : content}</Markdown>
       )}
       <Backdrop
         sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
@@ -144,5 +144,5 @@ export default function Zettel() {
         <Typography>Scan now to share!</Typography>
       </Backdrop>
     </Box>
-  )
+  );
 }

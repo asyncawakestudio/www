@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [
     markdown({ mode: [Mode.HTML] }),
     react()
-  ],
+  ]
 });
