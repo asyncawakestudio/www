@@ -19,7 +19,7 @@ describe("Home", () => {
     });
 
         it("renders renders subtitle", () => {
-            expect(screen.getByTestId("home-content").textContent).toBe('We build accessible, performant, responsive and secure applications.');
+            expect(screen.getByTestId("home-content").textContent).toBe('We build SPARC (secure, performant, accessible, responsive and compliant) applications.');
         });
 
     it("renders renders posts", () => {
