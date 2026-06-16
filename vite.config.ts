@@ -8,4 +8,9 @@ export default defineConfig({
     markdown({ mode: [Mode.HTML] }),
     react()
   ],
+  resolve: {
+    alias: {
+      'react-transition-group': 'react-transition-group/cjs',
+    },
+  },
 });

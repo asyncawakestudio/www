@@ -8,6 +8,14 @@ export default defineConfig({
             reportOnFailure: true,
         },
         environment: 'jsdom',
+        alias: {
+            'react-transition-group': 'react-transition-group/cjs',
+        },
         setupFiles: ['./src/setup.ts'],
+    },
+    resolve: {
+        alias: {
+            'react-transition-group': 'react-transition-group/cjs',
+        },
     },
 })
