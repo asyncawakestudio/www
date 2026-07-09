@@ -1,4 +1,4 @@
-import POST_20260301 from "./2026-03-01.md?raw";
+import POST_20260801 from "./2026-08-01.md?raw";
 import postsInfo from "./posts.json";
 
-export { POST_20260301, postsInfo };
+export { POST_20260801, postsInfo };

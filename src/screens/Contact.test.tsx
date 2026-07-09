@@ -23,7 +23,7 @@ describe("Contact", () => {
 
   it("renders renders github link", () => {
     expect(screen.getByTestId("contact-github").textContent).toBe(
-      "github.com/ayushmanchhabra",
+      "github.com/asyncawakestudio",
     );
   });
 

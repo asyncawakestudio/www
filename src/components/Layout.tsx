@@ -83,7 +83,7 @@ export default function Layout() {
             </Link>
             <Link
               data-testid="layout-footer-github"
-              href="https://github.com/ayushmanchhabra"
+              href="https://github.com/asyncawakestudio"
               target="_blank"
               rel="noopener noreferrer"
             >
