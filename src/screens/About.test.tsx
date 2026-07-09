@@ -2,24 +2,28 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
-import Author from "./Author";
+import About from "./About";
 
-describe("Post", () => {
+describe("About", () => {
   let unMount: () => void = () => {};
 
   beforeEach(() => {
     const { unmount } = render(
       <Router>
-        <Author />
+        <About />
       </Router>,
     );
 
     unMount = unmount;
   });
 
-  it("renders renders back to main page", () => {
-    expect(screen.getByTestId("author-backtomainpage").textContent).toBe(
-      "Go back to main page",
+  it("renders renders title", () => {
+    expect(screen.getByTestId("about-title").textContent).toBe("About");
+  });
+
+  it("renders renders content", () => {
+    expect(screen.getByTestId("about-content").textContent).toContain(
+      "Async Awake Studio",
     );
   });
 

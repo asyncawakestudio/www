@@ -2,24 +2,28 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
-import Author from "./Author";
+import Contact from "./Contact";
 
-describe("Post", () => {
+describe("Contact", () => {
   let unMount: () => void = () => {};
 
   beforeEach(() => {
     const { unmount } = render(
       <Router>
-        <Author />
+        <Contact />
       </Router>,
     );
 
     unMount = unmount;
   });
 
-  it("renders renders back to main page", () => {
-    expect(screen.getByTestId("author-backtomainpage").textContent).toBe(
-      "Go back to main page",
+  it("renders renders title", () => {
+    expect(screen.getByTestId("contact-title").textContent).toBe("Contact");
+  });
+
+  it("renders renders github link", () => {
+    expect(screen.getByTestId("contact-github").textContent).toBe(
+      "github.com/ayushmanchhabra",
     );
   });
 

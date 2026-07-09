@@ -2,25 +2,23 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
-import Author from "./Author";
+import Terms from "./Terms";
 
-describe("Post", () => {
+describe("Terms", () => {
   let unMount: () => void = () => {};
 
   beforeEach(() => {
     const { unmount } = render(
       <Router>
-        <Author />
+        <Terms />
       </Router>,
     );
 
     unMount = unmount;
   });
 
-  it("renders renders back to main page", () => {
-    expect(screen.getByTestId("author-backtomainpage").textContent).toBe(
-      "Go back to main page",
-    );
+  it("renders renders title", () => {
+    expect(screen.getByTestId("terms-title").textContent).toBe("Terms of Use");
   });
 
   afterEach(() => {

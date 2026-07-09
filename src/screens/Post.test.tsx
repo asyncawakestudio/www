@@ -5,21 +5,23 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import Post from "./Post";
 
 describe("Post", () => {
+  let unMount: () => void = () => {};
 
-    let unMount: () => void = () => { };
+  beforeEach(() => {
+    const { unmount } = render(
+      <Router>
+        <Post />
+      </Router>,
+    );
 
-    beforeEach(() => {
-        const { unmount } = render(<Router><Post /></Router>);
+    unMount = unmount;
+  });
 
-        unMount = unmount;
-    });
+  it("renders renders back to main page", () => {
+    expect(screen.getByTestId("posts-backtomainpage").textContent).toBe("Home");
+  });
 
-    it("renders renders back to main page", () => {
-        expect(screen.getByTestId("posts-backtomainpage").textContent).toBe('Home');
-    });
-
-    afterEach(() => {
-        unMount();
-    });
-
+  afterEach(() => {
+    unMount();
+  });
 });

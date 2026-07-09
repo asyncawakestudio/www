@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && cp .github/CNAME ./dist/CNAME",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix ./src/**/*.{ts,tsx}",
     "test": "vitest run --coverage.enabled true",
     "deploy": "gh-pages -b staging -d ./dist -u \"github-actions-bot <support+actions@github.com>\"",
     "preview": "vite preview"
@@ -28,6 +31,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
+    "prettier": "^3.9.4",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

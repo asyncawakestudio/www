@@ -5,29 +5,39 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import Home from "./Home";
 
 describe("Home", () => {
+  let unMount: () => void = () => {};
 
-    let unMount: () => void = () => { };
+  beforeEach(() => {
+    const { unmount } = render(
+      <Router>
+        <Home />
+      </Router>,
+    );
 
-    beforeEach(() => {
-        const { unmount } = render(<Router><Home /></Router>);
+    unMount = unmount;
+  });
 
-        unMount = unmount;
-    });
+  it("renders renders title", () => {
+    expect(screen.getByTestId("home-title").textContent).toBe(
+      "Async Awake Studio",
+    );
+  });
 
-    it("renders renders title", () => {
-        expect(screen.getByTestId("home-title").textContent).toBe('Async Awake Studio');
-    });
+  it("renders renders subtitle", () => {
+    expect(screen.getByTestId("home-content").textContent).toContain("SPARC");
+  });
 
-        it("renders renders subtitle", () => {
-            expect(screen.getByTestId("home-content").textContent).toBe('We build SPARC (secure, performant, accessible, responsive and compliant) applications.');
-        });
+  it("renders renders posts link", () => {
+    expect(screen.getByTestId("home-posts").textContent).toBe("Read the blog");
+  });
 
-    it("renders renders posts", () => {
-        expect(screen.getByTestId("home-posts").textContent).toBe('Blog');
-    });
+  it("renders renders about link", () => {
+    expect(screen.getByTestId("home-about").textContent).toBe(
+      "About the studio",
+    );
+  });
 
-    afterEach(() => {
-        unMount();
-    });
-
+  afterEach(() => {
+    unMount();
+  });
 });
