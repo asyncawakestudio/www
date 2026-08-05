@@ -15,7 +15,7 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import Markdown from "react-markdown";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import { QRCodeSVG as QR } from "qrcode.react";
 
 import style from "./Zettel.module.css";

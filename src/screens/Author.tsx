@@ -1,5 +1,5 @@
 import { Box, Link, List, ListItem, Typography } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import React from "react";
 
 import posts from "../content/posts.json";
