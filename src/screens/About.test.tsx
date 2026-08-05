@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import About from "./About";

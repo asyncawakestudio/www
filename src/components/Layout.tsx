@@ -1,5 +1,5 @@
 import { Box, Link, Typography } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 
 const NAV_LINKS = [
   { label: "Home", href: "#/" },
