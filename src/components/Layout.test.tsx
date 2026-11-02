@@ -29,10 +29,34 @@ describe("Layout", () => {
 
   it("renders renders nav links", () => {
     expect(screen.getByTestId("layout-nav-home").textContent).toBe("Home");
-    expect(screen.getByTestId("layout-nav-blog").textContent).toBe("Blog");
-    expect(screen.getByTestId("layout-nav-about").textContent).toBe("About");
+    expect(screen.getByTestId("layout-nav-portfolio").textContent).toBe(
+      "Portfolio",
+    );
     expect(screen.getByTestId("layout-nav-contact").textContent).toBe(
       "Contact",
+    );
+  });
+
+  it("points nav links at their pages", () => {
+    expect(screen.getByTestId("layout-nav-home")).toHaveAttribute("href", "#/");
+    expect(screen.getByTestId("layout-nav-portfolio")).toHaveAttribute(
+      "href",
+      "#/portfolio",
+    );
+    expect(screen.getByTestId("layout-nav-contact")).toHaveAttribute(
+      "href",
+      "mailto:contact@asyncawake.studio",
+    );
+  });
+
+  it("points footer legal links at their own pages", () => {
+    expect(screen.getByTestId("layout-footer-privacy")).toHaveAttribute(
+      "href",
+      "#/privacy",
+    );
+    expect(screen.getByTestId("layout-footer-terms")).toHaveAttribute(
+      "href",
+      "#/terms",
     );
   });
 

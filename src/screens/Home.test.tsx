@@ -18,23 +18,15 @@ describe("Home", () => {
   });
 
   it("renders renders title", () => {
-    expect(screen.getByTestId("home-title").textContent).toBe(
-      "Async Awake Studio",
+    expect(screen.getByTestId("home-title").textContent).toContain(
+      "Async Awake Studio creates secure, performant, accessible, responsive and compliant (SPARC) applications.",
     );
   });
 
-  it("renders renders subtitle", () => {
-    expect(screen.getByTestId("home-content").textContent).toContain("SPARC");
-  });
-
-  it("renders renders posts link", () => {
-    expect(screen.getByTestId("home-posts").textContent).toBe("Read the blog");
-  });
-
-  it("renders renders about link", () => {
-    expect(screen.getByTestId("home-about").textContent).toBe(
-      "About the studio",
-    );
+  it("links to the contact email", () => {
+    expect(
+      screen.getByRole("link", { name: "contact@asyncawake.studio" }),
+    ).toHaveAttribute("href", "mailto:contact@asyncawake.studio");
   });
 
   afterEach(() => {

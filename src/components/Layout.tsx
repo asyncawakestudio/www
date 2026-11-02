@@ -3,9 +3,8 @@ import { Outlet } from "react-router";
 
 const NAV_LINKS = [
   { label: "Home", href: "#/" },
-  { label: "Blog", href: "#/blog/post" },
-  { label: "About", href: "#/about" },
-  { label: "Contact", href: "#/contact" },
+  { label: "Portfolio", href: "#/portfolio" },
+  { label: "Contact", href: "mailto:contact@asyncawake.studio" },
 ];
 
 const barSx = {
@@ -27,6 +26,9 @@ export default function Layout() {
       <Box
         component="header"
         sx={{
+          position: "sticky",
+          top: 0,
+          zIndex: "appBar",
           bgcolor: "background.paper",
           borderBottom: "1px solid",
           borderColor: "divider",
@@ -44,7 +46,7 @@ export default function Layout() {
           <Box component="nav" sx={{ display: "flex", gap: 3 }}>
             {NAV_LINKS.map((link) => (
               <Link
-                key={link.href}
+                key={link.label}
                 data-testid={`layout-nav-${link.label.toLowerCase()}`}
                 href={link.href}
               >

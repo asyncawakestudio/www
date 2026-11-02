@@ -1,6 +1,10 @@
 import { Box, Link, Typography } from "@mui/material";
 
+import useScrollToTop from "../components/useScrollToTop";
+
 export default function Terms() {
+  useScrollToTop();
+
   return (
     <Box sx={{ textAlign: "left" }}>
       <Typography data-testid="terms-title" variant="h4">

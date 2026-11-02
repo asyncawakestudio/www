@@ -1,6 +1,10 @@
 import { Box, Link, Typography } from "@mui/material";
 
+import useScrollToTop from "../components/useScrollToTop";
+
 export default function Privacy() {
+  useScrollToTop();
+
   return (
     <Box sx={{ textAlign: "left" }}>
       <Typography data-testid="privacy-title" variant="h4">
@@ -48,7 +52,8 @@ export default function Privacy() {
       <Typography variant="h6">Changes</Typography>
       <Typography variant="body1">
         If this policy changes, the update will be reflected on this page. For
-        questions, see <Link href="#/contact">Contact</Link>.
+        questions, see{" "}
+        <Link href="mailto:contact@asyncawake.studio">Contact</Link>.
       </Typography>
     </Box>
   );

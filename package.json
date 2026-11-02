@@ -42,15 +42,6 @@
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-eslint": "^8.72.1",
     "vite": "^8.3.5",
-    "vite-plugin-markdown": "^2.2.0",
     "vitest": "^5.0.5"
-  },
-  "overrides": {
-    "markdown-it": {
-      "linkify-it": "^5.0.2"
-    },
-    "vite-plugin-markdown": {
-      "markdown-it": "^14.3.0"
-    }
   }
 }

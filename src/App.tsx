@@ -6,16 +6,7 @@ import {
 import { HashRouter as Router, Routes, Route } from "react-router";
 
 import Layout from "./components/Layout";
-import {
-  About,
-  Author,
-  Contact,
-  Home,
-  Post,
-  Privacy,
-  Terms,
-  Zettel,
-} from "./screens";
+import { Home, Portfolio, Privacy, Terms, Zettel } from "./screens";
 import theme from "./theme";
 
 import "./App.css";
@@ -29,16 +20,11 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
-
-              <Route path="/blog/post" element={<Post />} />
-              <Route path="/blog/post/:date" element={<Post />} />
-
-              <Route path="/blog/author" element={<Author />} />
-              <Route path="/blog/author/:name" element={<Author />} />
+              {/* Retired pages (#/about, #/blog/...) fall back to Home. */}
+              <Route path="*" element={<Home />} />
             </Route>
 
             <Route path="/service/zk/:hash?" element={<Zettel />} />
